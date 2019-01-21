@@ -20,7 +20,7 @@ if find $FROM* -type f -mmin +15 | read
   start=$(date +'%s')
   echo "$(date "+%d.%m.%Y %T") RCLONE UPLOAD STARTED" | tee -a $LOGFILE
   # MOVE FILES OLDER THAN 15 MINUTES 
-  rclone move "$FROM" "$TO" --transfers=10 --log-file=$LOGFILE
+  rclone copy "$FROM" "$TO" --transfers=10 --log-file=$LOGFILE
   echo "$(date "+%d.%m.%Y %T") RCLONE UPLOAD FINISHED IN $(($(date +'%s') - $start)) SECONDS" | tee -a $LOGFILE
 fi
 exit
