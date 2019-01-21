@@ -10,9 +10,9 @@ if pidof -o %PPID -x "$0"; then
    exit 1
 fi
 
-LOGFILE="/home/plex/logs/rclone-upload.log"
-FROM="/storage/local/"
-TO="gdrivecrypt:/"
+LOGFILE="/home/stephen/logs/rclone-upload.log"
+FROM="/home/stephen"
+TO="gdrive:/"
 
 # CHECK FOR FILES IN FROM FOLDER THAT ARE OLDER THAN 15 MINUTES
 if find $FROM* -type f -mmin +15 | read
@@ -20,7 +20,7 @@ if find $FROM* -type f -mmin +15 | read
   start=$(date +'%s')
   echo "$(date "+%d.%m.%Y %T") RCLONE UPLOAD STARTED" | tee -a $LOGFILE
   # MOVE FILES OLDER THAN 15 MINUTES 
-  rclone move "$FROM" "$TO" --transfers=20 --checkers=20 --delete-after --min-age 15m --log-file=$LOGFILE
+  rclone move "$FROM" "$TO" --transfers=10 --log-file=$LOGFILE
   echo "$(date "+%d.%m.%Y %T") RCLONE UPLOAD FINISHED IN $(($(date +'%s') - $start)) SECONDS" | tee -a $LOGFILE
 fi
 exit
