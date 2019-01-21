@@ -11,8 +11,8 @@ if pidof -o %PPID -x "$0"; then
 fi
 
 LOGFILE="/home/stephen/logs/rclone-upload.log"
-FROM="/home/stephen"
-TO="gdrive:/"
+FROM="/home/stephen/rtorrent/download/ptp"
+TO="gdrive:PTP"
 
 # CHECK FOR FILES IN FROM FOLDER THAT ARE OLDER THAN 15 MINUTES
 if find $FROM* -type f -mmin +15 | read
