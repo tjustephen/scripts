@@ -5,10 +5,10 @@
 # * * * * *  /home/plex/scripts/rclone-mount-check.sh >/dev/null 2>&1
 # Make script executable with: chmod a+x /home/plex/scripts/rclone-mount-check.sh
 
-LOGFILE="/home/plex/logs/rclone-mount-check.log"
-RCLONEREMOTE="acdcrypt:"
-MPOINT="/home/plex/acdcrypt"
-CHECKFILEPATH="mountcheck"
+LOGFILE="/home/stephen/logs/rclone-mount-check.log"
+RCLONEREMOTE="gdrive:"
+MPOINT="/home/home/gdrive"
+CHECKFILE="mountcheck"
 
 if pidof -o %PPID -x "$0"; then
     echo "$(date "+%d.%m.%Y %T") EXIT: Already running." | tee -a "$LOGFILE"
@@ -34,14 +34,11 @@ else
         sleep 1
     done
     rclone mount \
-        --read-only \
         --allow-non-empty \
         --allow-other \
-        --max-read-ahead 14G \
-        --acd-templink-threshold 0 \
-        --checkers 16 \
-        --quiet \
-        --stats 0 \
+        --copy-links \
+        --no-gzip-encoding \
+        --no-check-certificate \
         $RCLONEREMOTE $MPOINT &
 
     while ! mount | grep "on ${MPOINT} type" > /dev/null
