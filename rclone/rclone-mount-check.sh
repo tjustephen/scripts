@@ -2,10 +2,10 @@
 # 1. Change paths
 # 2. for mount and log file & create mountchek file.
 # 3. Add to crontab -e (paste the line bellow, without # in front)
-# * * * * *  /home/plex/scripts/rclone-mount-check.sh >/dev/null 2>&1
-# Make script executable with: chmod a+x /home/plex/scripts/rclone-mount-check.sh
+# * * * * *  /root/rclone-mount-check.sh >/dev/null 2>&1
+# Make script executable with: chmod a+x /root/rclone-mount-check.sh
 
-LOGFILE="/home/stephen/logs/rclone-mount-check.log"
+LOGFILE="/root/rclone-mount-check.log"
 RCLONEREMOTE="gdrive:"
 MPOINT="/home/stephen/gdrive"
 CHECKFILE="mountcheck"
