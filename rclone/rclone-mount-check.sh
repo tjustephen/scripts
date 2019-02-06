@@ -7,7 +7,7 @@
 
 LOGFILE="/home/stephen/logs/rclone-mount-check.log"
 RCLONEREMOTE="gdrive:"
-MPOINT="/home/home/gdrive"
+MPOINT="/home/stephen/gdrive"
 CHECKFILE="mountcheck"
 
 if pidof -o %PPID -x "$0"; then
