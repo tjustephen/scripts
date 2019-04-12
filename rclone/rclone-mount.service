@@ -18,11 +18,10 @@ Documentation=http://rclone.org/docs/
 After=network.target
 
 [Service]
-Type=simple
 User=root
-Group=root
 ExecStart=/usr/bin/rclone mount --allow-non-empty --allow-other gdrive:/ /home/stephen/gdrive
 ExecStop=/usr/bin/fusermount -uz /home/stephen/gdrive
+Restart=on-failure
 
 [Install]
 Wants=multi-user.target
