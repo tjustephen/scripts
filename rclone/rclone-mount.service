@@ -21,8 +21,8 @@ After=network-online.target
 Type=simple
 User=root
 Group=root
-ExecStart=/usr/bin/rclone mount --allow-non-empty --allow-other gdrive:/ /home/stephen/gdrvie
-ExecStop=/usr/bin/fusermount -uz /path/
+ExecStart=/usr/bin/rclone mount --allow-non-empty --allow-other gdrive:/ /home/stephen/gdrive
+ExecStop=/usr/bin/fusermount -uz /home/stephen/gdrive
 
 [Install]
 Wants=network-online.target
