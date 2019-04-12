@@ -15,7 +15,7 @@
 [Unit]
 Description=rclone Amazon Cloud Drive FUSE mount
 Documentation=http://rclone.org/docs/
-After=network-online.target
+After=network.target
 
 [Service]
 Type=simple
@@ -25,4 +25,4 @@ ExecStart=/usr/bin/rclone mount --allow-non-empty --allow-other gdrive:/ /home/s
 ExecStop=/usr/bin/fusermount -uz /home/stephen/gdrive
 
 [Install]
-Wants=network-online.target
+Wants=multi-user.target
