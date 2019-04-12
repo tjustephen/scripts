@@ -13,7 +13,7 @@
 # systemctl start rclone-mount.service
 
 [Unit]
-Description=rclone Amazon Cloud Drive FUSE mount
+Description=rclone Google Drive FUSE mount
 Documentation=http://rclone.org/docs/
 After=network.target
 
