@@ -19,9 +19,9 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=plex
-Group=plex
-ExecStart=/usr/bin/rclone mount --allow-non-empty --allow-other acdcrypt:/ /path/
+User=root
+Group=root
+ExecStart=/usr/bin/rclone mount --allow-non-empty --allow-other gdrive:/ /home/stephen/gdrvie
 ExecStop=/usr/bin/fusermount -uz /path/
 
 [Install]
